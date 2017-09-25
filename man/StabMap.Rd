@@ -1,6 +1,8 @@
 \name{StabMap}
 \alias{StabMap}
 \title{Evaluation of External Prefernce mapping stability}
+\description{
+A function that introduces a comparison approach of maps stability from different strategies before and after LOESS smoothing. It is based on the calculation of an average squared distance of preferences (ASDP) between maps obtained from subsamples of hedonic data through a resampling approach. The strategy with an overall ASDP lower than the other is preferred.}
 \usage{
 StabMap(Y,X,S,n,axis=c(1,2),formula_lm,
 formula_gam,formula_glm, dimredumethod=1,
@@ -23,11 +25,14 @@ It's required when choosing Canonical Analysis ad dimension reduction method.}
 
 \item{axis}{a length 2 vector specifying the components of dimension reduction method to plot.}
 
-\item{formula_lm}{a formula expression for polynomial regression model for example formula_lm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
+\item{formula_lm}{a formula expression for polynomial regression model for example
+formula_lm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
 
-\item{formula_gam}{a formula expression for GAM model fitting for example formula_gam="~s(F1,k=3)+s(F2,k=3)".}
+\item{formula_gam}{a formula expression for GAM model fitting for example
+formula_gam="~s(F1,k=3)+s(F2,k=3)".}
 
-\item{formula_glm}{a formula expression for GLM model fitting  for example formula_glm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
+\item{formula_glm}{a formula expression for GLM model fitting  for example
+formula_glm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
 
 \item{dimredumethod}{1 is assigned to Principal Component Analysis(PCA). If 2, Multiple Factor Analysis(MFA). If 3, Canonical Analysis(CA).}
 
@@ -37,9 +42,6 @@ It's required when choosing Canonical Analysis ad dimension reduction method.}
 }
 \value{
 sum squared distances of preferences computed between maps before and after LOESS smoothing for each prediction model.}
-
-\description{
-A function that introduces a comparison approach of maps stability from different strategies before and after LOESS smoothing. It is based on the calculation of an average squared distance of preferences(ASDP) between maps obtained from subsamples of hedonic data. The strategy with an overall ASDP lower than the other is preferred.}
 
 \author{
 Ibtihel Rebhi, Rihab Boubakri, Dhafer Malouche
