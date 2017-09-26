@@ -25,14 +25,14 @@ It's required when choosing Canonical Analysis ad dimension reduction method.}
 
 \item{axis}{a length 2 vector specifying the components of dimension reduction method to plot.}
 
-\item{formula_lm}{a formula expression for polynomial regression model for example
-formula_lm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
+\item{formula_lm}{a formula expression for polynomial regression model
+for example formula_lm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
 
-\item{formula_gam}{a formula expression for GAM model fitting for example
-formula_gam="~s(F1,k=3)+s(F2,k=3)".}
+\item{formula_gam}{a formula expression for GAM model fitting
+for example formula_gam = "~s(F1,k=3)+s(F2,k=3)".}
 
-\item{formula_glm}{a formula expression for GLM model fitting  for example
-formula_glm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
+\item{formula_glm}{a formula expression for GLM model fitting
+for example formula_glm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
 
 \item{dimredumethod}{1 is assigned to Principal Component Analysis(PCA). If 2, Multiple Factor Analysis(MFA). If 3, Canonical Analysis(CA).}
 

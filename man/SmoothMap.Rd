@@ -28,7 +28,14 @@ It's required when choosing Canonical Analysis as dimension reduction method.}
 
 \item{axis}{a length 2 vector specifying the components of dimension reduction method to plot.}
 
-\item{formula}{a formula expression to be introduced. If predmodel=1, it corresponds to four polynomial regression models performed using \code{\link[stats]{lm}}:Quadratic model, the corresponding formula = "~I(F1*F1)+I(F2*F2)+F1*F2". Vector model, the formula = "~ F1 + F2". Circular model, the formula="~ F1 + F2 + (F1*F1 + F2*F2)". Elliptic model, the formula = "~I(F1*F1)+I(F2*F2)". If predmodel= 2, Generalized Additive models(GAM) structure performed using \code{\link[mgcv]{gam}}, proposed formula="~s(F1,k=3)+s(F2,k=3)". If predmodel= 3, Generalized Linear Models(GLM) structure performed using \code{\link[stats]{glm}}, proposed formula = "~I(F1*F1)+ I(F2*F2)+ F1*F2". If predmodel= 4, Bayes structure performed using \code{\link[MCMCpack]{MCMCregress}}, proposed formula="~I(F1*F1)+I(F2*F2)+F1*F2".}
+\item{formula}{a formula expression to be introduced. If predmodel=1, it corresponds to four polynomial regression models performed using
+\code{\link[stats]{lm}} : Quadratic model, the corresponding
+formula = "~I(F1*F1)+I(F2*F2)+F1*F2". Vector model,
+the formula = "~ F1 + F2". Circular model,
+the formula="~ F1 + F2 + (F1*F1 + F2*F2)". Elliptic model,
+the formula = "~I(F1*F1)+I(F2*F2)". If predmodel= 2, Generalized Additive models (GAM) structure performed using \code{\link[mgcv]{gam}}, proposed formula="~s(F1,k=3)+s(F2,k=3)". If predmodel= 3, Generalized Linear Models(GLM) structure performed using \code{\link[stats]{glm}}, proposed
+formula = "~I(F1*F1)+ I(F2*F2)+ F1*F2". If predmodel= 4, Bayes structure performed using \code{\link[MCMCpack]{MCMCregress}}, proposed
+formula="~I(F1*F1)+I(F2*F2)+F1*F2".}
 
 \item{dimredumethod}{1 is assignedd to Principal Component Analysis(PCA). If 2, Multiple Factor Analysis(MFA). If 3, Canonical Analysis(CA).}
 

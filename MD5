@@ -1,5 +1,5 @@
-124241df5b0e6a5c86ec0bc7841eeb86 *DESCRIPTION
-5d3f22ece5afa298a5528af017fce6ee *NAMESPACE
+a8301ad08bf458695124150bffb945b9 *DESCRIPTION
+85b018f69d263f62956fba3959c76bd8 *NAMESPACE
 da40d8b090c8cc320a53f9c48e4cf26b *R/Bayes_model.R
 2bbaa47e0e3112b62351b0dff744e79e *R/GAM_model.R
 4e69936468aafc5dc0b596c389ad618a *R/GLM_model.R
@@ -21,10 +21,10 @@ ed3f56501323c5d0f693827771d0507a *inst/SensMapUI.rar
 fa4a1c97950bb60f01667b3d69b34006 *inst/SensMapUI/server.R
 ee6dc702eee4317de413a6240ead23ec *inst/SensMapUI/style.css
 16b3e96305d7f49e98f6a5d0f1db070c *inst/SensMapUI/ui.R
-9b066d690749935f4d6bcc96d6a77766 *man/PrefMap.Rd
+aeafb842ebc62347f7dda274ae9d9118 *man/PrefMap.Rd
 4c92918fd27fb2cd87b824393328e139 *man/SensMapUI.Rd
-f43b9620d515dc14f89977b5b5943d73 *man/SmoothMap.Rd
-53667ec1aeba1fdb981b0e227fb8d666 *man/StabMap.Rd
+5ef1453532933688cee8f9d4c2929bf0 *man/SmoothMap.Rd
+ef9aadddd885cc9d5ada4613a5c2d478 *man/StabMap.Rd
 d0d34ec15f1f62f3cd85eb18b1ef3df9 *man/hedo_biscuit.Rd
 0fbad8d0164ce9196dfd76679a347963 *man/sens_biscuit.Rd
 ef26cfb1a933031b5428f4419e59e468 *tests/testthat.R
