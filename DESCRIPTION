@@ -1,7 +1,7 @@
 Package: SensMap
 Type: Package
 Title: Sensory and Consumer Data Mapping
-Version: 0.3
+Version: 0.4
 Date: 2017-09-13
 Author: Ibtihel Rebhi [aut, cre], Rihab Boubakri [ctb], Dhafer Malouche [ctb]
 Maintainer: Ibtihel Rebhi <ibtihel.rebhi@enit.utm.tn>
@@ -24,6 +24,6 @@ LazyData: TRUE
 Suggests: testthat
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2017-09-25 22:45:23 UTC; Admin
+Packaged: 2017-09-29 22:37:47 UTC; Admin
 Repository: CRAN
-Date/Publication: 2017-09-26 04:49:36 UTC
+Date/Publication: 2017-09-30 16:20:32 UTC

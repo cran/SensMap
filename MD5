@@ -1,5 +1,5 @@
-a8301ad08bf458695124150bffb945b9 *DESCRIPTION
-85b018f69d263f62956fba3959c76bd8 *NAMESPACE
+6343711f9663bb283e1e0c6ea39d539d *DESCRIPTION
+1a58c3a56d584a7e5065bef72ea79277 *NAMESPACE
 da40d8b090c8cc320a53f9c48e4cf26b *R/Bayes_model.R
 2bbaa47e0e3112b62351b0dff744e79e *R/GAM_model.R
 4e69936468aafc5dc0b596c389ad618a *R/GLM_model.R
@@ -13,8 +13,8 @@ b23039eb727667094299a9d9688036d7 *R/discrt_space.R
 583fade8d3888ba1fd9d4e1d92c92685 *R/map_mfa.R
 090355e92e771f61f50c975e53d44120 *R/map_pca.R
 ba1ee55791bec25f2ae76d7d5689d0f6 *R/shinySensMap.R
-2720bd8e94b41124100e9520a620f312 *data/hedo_biscuit.csv
-dc20d5bfa93ba51c931f6422a29f2dc6 *data/sens_biscuit.csv
+12dceb8c9f0a7392e6b5bf2bb20b8f28 *data/hedo_biscuit.rda
+a2d6f4ed835d49a56ee7e7e09387d20f *data/sens_biscuit.rda
 ed3f56501323c5d0f693827771d0507a *inst/SensMapUI.rar
 59e5cb7fedff5ff0f2776a7684373b5a *inst/SensMapUI/global.R
 18b49ed763dc538b7a8936920d9fae5d *inst/SensMapUI/rsconnect/shinyapps.io/ibtihelrebhi/SensMapUI.dcf
@@ -28,7 +28,7 @@ ef9aadddd885cc9d5ada4613a5c2d478 *man/StabMap.Rd
 d0d34ec15f1f62f3cd85eb18b1ef3df9 *man/hedo_biscuit.Rd
 0fbad8d0164ce9196dfd76679a347963 *man/sens_biscuit.Rd
 ef26cfb1a933031b5428f4419e59e468 *tests/testthat.R
-62b308885bb64d9f366fa80dfdfac63b *tests/testthat/Rplots.pdf
+295b8da2ac90ace712f665ebe5b02f69 *tests/testthat/Rplots.pdf
 35a6fb421a9615625804272f00847fb6 *tests/testthat/testPrefMap.R
 51b7228245c57169c935be2a51ebb3bf *tests/testthat/testSmoothMap.R
 b91a7acbf6205e7a89e8993e64a8fec2 *tests/testthat/testStabMap.R
