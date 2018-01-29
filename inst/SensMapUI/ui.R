@@ -58,7 +58,7 @@ shinyUI(bootstrapPage(
 
         menuItem("External Preference Mapping",icon = icon("random"), tabName = "epm"),
 
-        menuItem("Evaluation of External Preference Mapping",icon = icon("commenting"), tabName = "resmod"),
+        menuItem("Consumer preference prediction",icon = icon("commenting"), tabName = "resmod"),
 
         menuItem("Smoothing of External Preference Mapping",icon = icon("map-signs"), tabName = "epmsmooth"),
 
@@ -129,9 +129,9 @@ shinyUI(bootstrapPage(
                        fluidPage(
                          tabBox(width=12,
                                 id = "statdesc",
-                                tabPanel(h4("Average table by product"),div(style = 'overflow-x: scroll',dataTableOutput('av')),
+                                tabPanel(h4("Average table per product"),div(style = 'overflow-x: scroll',dataTableOutput('av')),
                                          downloadButton("downloadav", "Download Table",class = "butt")),
-                                tabPanel(h4("Average table by product and assessor"),div(style = 'overflow-x: scroll',dataTableOutput('av.table2')),
+                                tabPanel(h4("Average table per product and assessor"),div(style = 'overflow-x: scroll',dataTableOutput('av.table2')),
                                          downloadButton("downloadavt", "Download Table",class = "butt"))
 
                          )
@@ -381,7 +381,9 @@ shinyUI(bootstrapPage(
                                    h2(HTML('<i class="fa fa-cog fa-spin fa-2x"></i>'))
                   )
                   ,  conditionalPanel(condition="!$('html').hasClass('shiny-busy')",
-                                     plotOutput("epmplot")
+                                     plotOutput("epmplot"), downloadButton(
+                                       outputId = "downloadPlotexternal",
+                                       label    = "Download Plot",class = "butt")
                    )
                   ),
                   tabPanel(h4("Prediction Surface"),
@@ -390,7 +392,9 @@ shinyUI(bootstrapPage(
                                             h2(HTML('<i class="fa fa-cog fa-spin fa-2x"></i>'))
                            )
                            ,  conditionalPanel(condition="!$('html').hasClass('shiny-busy')",
-                                               plotOutput("epmplot2")
+                                               plotOutput("epmplot2"),  downloadButton(
+                                                 outputId = "downloadPlotpredsurface",
+                                                 label    = "Download Plot",class = "butt")
                            )
                   ),
                   tabPanel(h4("External mapping 3D"),
@@ -439,7 +443,11 @@ shinyUI(bootstrapPage(
                                    h2(HTML('<i class="fa fa-cog fa-spin fa-2x"></i>'))
                   )
                   ,  conditionalPanel(condition="!$('html').hasClass('shiny-busy')",
-                                      plotOutput("smooth"),plotOutput("smooth_lo")
+                                      plotOutput("smooth"),plotOutput("smooth_lo"),
+                                      downloadButton(
+                                        outputId = "downloadPlotnnsmooth",
+                                        label    = "Download Plot",class = "butt"),
+
                   )
                   )
       ),

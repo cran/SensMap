@@ -15,7 +15,7 @@ rownames(prod_bisc)= prod_bisc[,1]
 X= prod_bisc[,-c(1:3)]
 # Map drawing in 2D
 map_QR= PrefMap(Y,X,S,axis=c(1,2),
-                formula="~I(F1*F1)+I(F2*F2)+F1*F2",
+                formula="~I(F1*F1)+ I(F2*F2)+ F1*F2",
                 dimredumethod=1, predmodel=1, nbpoints=50,pred.na =FALSE,
-                graph.pred =FALSE, graph.map =TRUE, graph.map.3D =FALSE )
+                graph.pred =FALSE, graph.map =FALSE, graph.map.3D =TRUE )
 

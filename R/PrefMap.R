@@ -64,7 +64,7 @@ PrefMap <-function (Y,X,S,axis=c(1,2),formula, dimredumethod=1, predmodel=1, nbp
   }
 
   if (graph.map == TRUE){
-    image.plot(graph.surfconso,col=terrain.colors(60),main="External Preference Mapping ")
+    image.plot(graph.surfconso,col=terrain.colors(60),main="External Preference Mapping")
     contour(x=graph.surfconso$x,y=graph.surfconso$y,z=graph.surfconso$z,add=T,levels=seq(from=0,to=100,by=5))
     text(x=map$F1,y=map$F2,labels=rownames(X),pos=3)
     points(x=map$F1,y=map$F2,pch=20)

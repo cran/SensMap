@@ -71,7 +71,7 @@ SmoothMap = function (Y,X,S, axis=c(1,2),formula, dimredumethod=1,
   }
 
   if (drawmap == TRUE)  {
-    image.plot(graph.surfconso,col=terrain.colors(60), main="Smoothed External Preference Mapping")
+    image.plot(graph.surfconso,col=terrain.colors(60))#, main="")
     contour(x=graph.surfconso$x,y=graph.surfconso$y,z=graph.surfconso$z,add=T,levels=seq(from=0,to=100,by=5))
     text(x=map$F1,y=map$F2,labels=rownames(Y),pos=3)
     points(x=map$F1,y=map$F2,pch=20)
