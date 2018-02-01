@@ -1,4 +1,4 @@
-19f519b4e966c46f4e3fb2db9c78de2f *DESCRIPTION
+dbb1b3322039952eb8be7f1d6ed0e2de *DESCRIPTION
 2ed9e90561d90cc90ec5656301ab2c26 *NAMESPACE
 da40d8b090c8cc320a53f9c48e4cf26b *R/Bayes_model.R
 2bbaa47e0e3112b62351b0dff744e79e *R/GAM_model.R
@@ -22,7 +22,7 @@ ed3f56501323c5d0f693827771d0507a *inst/SensMapUI.rar
 18b49ed763dc538b7a8936920d9fae5d *inst/SensMapUI/rsconnect/shinyapps.io/ibtihelrebhi/SensMapUI.dcf
 fa4a1c97950bb60f01667b3d69b34006 *inst/SensMapUI/server.R
 ee6dc702eee4317de413a6240ead23ec *inst/SensMapUI/style.css
-8343d5d9e54316caf91affa3bb40c4b3 *inst/SensMapUI/ui.R
+20e3f62af0dfeb020c2ab6dd181062c1 *inst/SensMapUI/ui.R
 aeafb842ebc62347f7dda274ae9d9118 *man/PrefMap.Rd
 4c92918fd27fb2cd87b824393328e139 *man/SensMapUI.Rd
 5ef1453532933688cee8f9d4c2929bf0 *man/SmoothMap.Rd
