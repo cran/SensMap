@@ -44,11 +44,10 @@ for example formula_glm = "~I(F1*F1)+I(F2*F2)+F1*F2".}
 sum squared distances of preferences computed between maps before and after LOESS smoothing for each prediction model.}
 
 \author{
-Ibtihel Rebhi, Rihab Boubakri, Dhafer Malouche
+Ibtihel Rebhi, Dhafer Malouche
 }
 
 \examples{
-\dontrun{
 data(hedo_biscuit)
  data(sens_biscuit)
 # Make data compatible to the form of X, Y and S
@@ -63,20 +62,21 @@ data(hedo_biscuit)
  rownames(prod_bisc)= prod_bisc[,1]
  X= prod_bisc[,-c(1:3)]
 # Results of comparing maps stability
-res_stab= StabMap(Y,X,S,n=2,axis=c(1,2),
-formula_lm="~I(F1*F1)+I(F2*F2)+F1*F2",
-formula_gam="~s(F1,k=3)+s(F2,k=3)",
-formula_glm="~I(F1*F1)+I(F2*F2)+F1*F2",
-dimredumethod=1, nbpoints=50)
-res_stab=melt(res_stab)
-colnames(res_stab)=c("prob", "var", "value")
+#res_stab= StabMap(Y,X,S,n=2,axis=c(1,2),
+#formula_lm="~I(F1*F1)+I(F2*F2)+F1*F2",
+#formula_gam="~s(F1,k=3)+s(F2,k=3)",
+#formula_glm="~I(F1*F1)+I(F2*F2)+F1*F2",
+#dimredumethod=1, nbpoints=50)
+#library(reshape2)
+#res_stab=melt(res_stab)
+#colnames(res_stab)=c("prob", "var", "value")
 # Visualization of stability results
-gr<-ggplot(res_stab,aes(x=prob,y=value,fill=prob))+geom_boxplot()+xlab("Methods")+
-ylab("Average Squared Distance of Preferences")
-gr<-gr+theme_bw()+theme(legend.position = "none",
-    axis.text.x = element_text(angle = 90))
-gr
-}
+#library(ggplot2)
+#gr<-ggplot(res_stab,aes(x=prob,y=value,fill=prob))+geom_boxplot()+xlab("Methods")+
+#ylab("Average Squared Distance of Preferences")
+#gr<-gr+theme_bw()+theme(legend.position = "none",
+#    axis.text.x = element_text(angle = 90))
+#gr
 }
 \seealso{
 \code{\link{PrefMap}}, \code{\link{SmoothMap}},\code{\link{SensMapUI}}

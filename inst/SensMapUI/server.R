@@ -3003,7 +3003,7 @@ shinyServer(function(input,output,session)
       S=moy4()
       nbpoints=50
       if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Vector model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar1=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2",
                 dimredumethod=1, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3012,10 +3012,11 @@ shinyServer(function(input,output,session)
                                formula="~ F1 + F2", dimredumethod=1,
                                predmodel=1, graphpred=FALSE, drawmap=TRUE,
                                pred.na=TRUE,dmap.loess=FALSE)
+      par(impar1)
 
         }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Circular model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar2=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2 + (F1*F1 + F2*F2)",
                 dimredumethod=1, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3023,9 +3024,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2 + (F1*F1 + F2*F2)", dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar2)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Elliptic model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar3=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)",
                 dimredumethod=1, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3033,9 +3036,10 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)", dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar3)}
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Quadratic model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar4=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=1, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3043,9 +3047,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar4)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Generalized Additive Model" && input$par_var3=="YES")
-      {par(mfrow = c(1,2))
+      {impar5=par(mfrow = c(1,2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~s(F1,k=3)+s(F2,k=3)",
                 dimredumethod=1, predmodel=2, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3053,9 +3059,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~s(F1,k=3)+s(F2,k=3)", dimredumethod=1,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar5)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Generalized Linear Model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar6=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=1, predmodel=3, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3063,11 +3071,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=1,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar6)
+        }
 
       ###############
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Vector model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar7=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2",
                 dimredumethod=1, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3075,9 +3085,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2", dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar7)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Circular model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar8=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2 + (F1*F1 + F2*F2)",
                 dimredumethod=1, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3085,9 +3097,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2 + (F1*F1 + F2*F2)", dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar8)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Elliptic model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar9=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)",
                 dimredumethod=1, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3095,9 +3109,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)", dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                pred.na=FALSE,dmap.loess=FALSE)
+        par(impar9)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Quadratic model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar10=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=1, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3105,9 +3121,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar10)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Generalized Additive Model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar11=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~s(F1,k=3)+s(F2,k=3)",
                 dimredumethod=1, predmodel=2, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3115,9 +3133,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~s(F1,k=3)+s(F2,k=3)", dimredumethod=1,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar11)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Generalized Linear Model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar12=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=1, predmodel=3, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3125,9 +3145,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=1,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar12)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Bayesian model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar13=par(mfrow = c(1, 2))
         a=drawmap (Y,X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=1, predmodel=4, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3135,12 +3157,14 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y,S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=1,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar13)
+        }
 
       ################
 
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Vector model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar14=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2",
                 dimredumethod=2, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3148,9 +3172,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2", dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar14)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Circular model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar15=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2 + (F1*F1 + F2*F2)",
                 dimredumethod=2, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3158,9 +3184,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2 + (F1*F1 + F2*F2)", dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar15)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Elliptic model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar16=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)",
                 dimredumethod=2, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3168,9 +3196,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)", dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar16)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Quadratic model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar17=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=2, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3178,9 +3208,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar17)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Generalized Additive Model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar18=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~s(F1,k=3)+s(F2,k=3)",
                 dimredumethod=2, predmodel=2, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3188,9 +3220,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~s(F1,k=3)+s(F2,k=3)", dimredumethod=2,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar18)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Generalized Linear Model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar19=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=2, predmodel=3, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3198,12 +3232,14 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=2,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar19)
+        }
 
       #######################
 
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Vector model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar20=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2",
                 dimredumethod=2, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3211,9 +3247,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2", dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar20)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Circular model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar21=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2 + (F1*F1 + F2*F2)",
                 dimredumethod=2, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3221,9 +3259,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2 + (F1*F1 + F2*F2)", dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar21)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Elliptic model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar22=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)",
                 dimredumethod=2, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3231,9 +3271,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)", dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar22)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Quadratic model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar23=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=2, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3241,9 +3283,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar23)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Generalized Additive Model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar24=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~s(F1,k=3)+s(F2,k=3)",
                 dimredumethod=2, predmodel=2, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3251,9 +3295,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~s(F1,k=3)+s(F2,k=3)", dimredumethod=2,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar24)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Generalized Linear Model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar25=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=2, predmodel=3, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3261,9 +3307,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=2,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar25)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Bayesian model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar26=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=2, predmodel=4, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3271,11 +3319,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=2,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar26)
+        }
 
       #################################
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Vector model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar27=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2",
                 dimredumethod=3, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3284,10 +3334,11 @@ shinyServer(function(input,output,session)
                                  formula="~ F1 + F2", dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
                                  pred.na=TRUE,dmap.loess=FALSE)
+        par(impar27)
 
       }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Circular model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar28=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2 + (F1*F1 + F2*F2)",
                 dimredumethod=3, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3295,9 +3346,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2 + (F1*F1 + F2*F2)", dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar28)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Elliptic model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar29=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)",
                 dimredumethod=3, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3305,9 +3358,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)", dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar29)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Quadratic model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar30=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=3, predmodel=1, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3315,9 +3370,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar30)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Generalized Additive Model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar31=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~s(F1,k=3)+s(F2,k=3)",
                 dimredumethod=3, predmodel=2, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3325,9 +3382,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~s(F1,k=3)+s(F2,k=3)", dimredumethod=3,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar31)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Generalized Linear Model" && input$par_var3=="YES")
-      {par(mfrow = c(1, 2))
+      {impar32=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=3, predmodel=3, nbpoints=50,
                 pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3335,11 +3394,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=3,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar32)
+        }
 
       #################################
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Vector model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar33=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2",
                 dimredumethod=3, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3347,9 +3408,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2", dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar33)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Circular model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar34=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~ F1 + F2 + (F1*F1 + F2*F2)",
                 dimredumethod=3, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3357,9 +3420,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~ F1 + F2 + (F1*F1 + F2*F2)", dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar34)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Elliptic model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar35=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)",
                 dimredumethod=3, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3368,9 +3433,10 @@ shinyServer(function(input,output,session)
                                  formula="~I(F1*F1)+I(F2*F2)", dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
                                  pred.na=FALSE,dmap.loess=FALSE)
+        par(impar35)
         }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Quadratic model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar36=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=3, predmodel=1, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3378,9 +3444,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar36)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Generalized Additive Model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar37=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~s(F1,k=3)+s(F2,k=3)",
                 dimredumethod=3, predmodel=2, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3388,9 +3456,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~s(F1,k=3)+s(F2,k=3)", dimredumethod=3,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar37)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Generalized Linear Model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar38=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=3, predmodel=3, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3398,9 +3468,11 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=3,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar38)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Bayesian model" && input$par_var3=="NO")
-      {par(mfrow = c(1, 2))
+      {impar39=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula="~I(F1*F1)+I(F2*F2)+F1*F2",
                 dimredumethod=3, predmodel=4, nbpoints=50,
                 pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3408,12 +3480,14 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula="~I(F1*F1)+I(F2*F2)+F1*F2", dimredumethod=3,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar39)
+        }
 
       #######################
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
              input$mod2=="Polynomial regression" )
-      {par(mfrow = c(1, 2))
+      {impar40=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=1, predmodel=1, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3421,10 +3495,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar40)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Polynomial regression" )
-      {par(mfrow = c(1, 2))
+      {impar41=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=1, predmodel=1, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3432,10 +3508,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=1,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar41)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="GAM" )
-      {par(mfrow = c(1, 2))
+      {impar42=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=1, predmodel=2, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3443,10 +3521,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=1,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar42)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Generalized Additive Model" )
-      {par(mfrow = c(1, 2))
+      {impar43=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=1, predmodel=2, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3454,11 +3534,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=1,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar43)
+        }
 
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Generalized Linear Model" )
-      {par(mfrow = c(1, 2))
+      {impar44=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=1, predmodel=3, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3466,10 +3548,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=1,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar44)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Generalized Linear Model" )
-      {par(mfrow = c(1, 2))
+      {impar45=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=1, predmodel=3, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3477,11 +3561,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=1,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar46)
+        }
 
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Bayesian model" )
-      {par(mfrow = c(1, 2))
+      {impar47=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=1, predmodel=4, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3489,10 +3575,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=1,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar47)
+        }
       else if(input$Dimension_var3=="Principal Component Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Bayesian model" )
-      {par(mfrow = c(1, 2))
+      {impar48=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=1, predmodel=4, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3500,14 +3588,16 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=1,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar48)
+        }
 
       #########################
 
       #######################
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Polynomial regression" )
-      {par(mfrow = c(1, 2))
+      {impar49=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=2, predmodel=1, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3515,10 +3605,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar49)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Polynomial regression" )
-      {par(mfrow = c(1, 2))
+      {impar50=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=2, predmodel=1, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3526,10 +3618,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=2,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar50)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Generalized Additive Model" )
-      {par(mfrow = c(1, 2))
+      {impar51=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=2, predmodel=2, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3537,10 +3631,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=2,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar51)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Generalized Additive Model" )
-      {par(mfrow = c(1, 2))
+      {impar52=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=2, predmodel=2, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3548,11 +3644,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=2,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar52)
+        }
 
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Generalized Linear Model" )
-      {par(mfrow = c(1, 2))
+      {impar53=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=2, predmodel=3, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3560,10 +3658,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=2,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar53)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Generalized Linear Model" )
-      {par(mfrow = c(1, 2))
+      {impar54=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=2, predmodel=3, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3571,11 +3671,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=2,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar54)
+        }
 
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Bayesian model" )
-      {par(mfrow = c(1, 2))
+      {impar55=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=2, predmodel=4, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3583,10 +3685,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=2,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar55)
+        }
       else if(input$Dimension_var3=="Multiple Factor Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Bayesian model" )
-      {par(mfrow = c(1, 2))
+      {impar56=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=2, predmodel=4, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3594,13 +3698,15 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=2,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar56)
+        }
       #########################
 
       #######################
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Polynomial regression" )
-      {par(mfrow = c(1, 2))
+      {impar57=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=3, predmodel=1, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3608,10 +3714,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar57)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Polynomial regression" )
-      {par(mfrow = c(1, 2))
+      {impar58=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=3, predmodel=1, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3619,10 +3727,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=3,
                                  predmodel=1, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar58)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Generalized Additive Model" )
-      {par(mfrow = c(1, 2))
+      {impar59=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=3, predmodel=2, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3630,10 +3740,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=3,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar59)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Generalized Additive Model" )
-      {par(mfrow = c(1, 2))
+      {impar60=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=3, predmodel=2, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3641,11 +3753,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=3,
                                  predmodel=2, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar60)
+        }
 
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Generalized Linear Model" )
-      {par(mfrow = c(1, 2))
+      {impar61=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=3, predmodel=3, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3653,10 +3767,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=3,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar61)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Generalized Linear Model" )
-      {par(mfrow = c(1, 2))
+      {impar62=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=3, predmodel=3, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3664,11 +3780,13 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=3,
                                  predmodel=3, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar62)
+        }
 
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Others" && input$par_var3=="NO" &&
               input$mod2=="Bayesian model" )
-      {par(mfrow = c(1, 2))
+      {impar63=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=3, predmodel=4, nbpoints=50,
                    pred.na =FALSE, graph.pred =FALSE, graph.map =TRUE,
@@ -3676,10 +3794,12 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=3,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=FALSE,dmap.loess=FALSE)}
+                                 pred.na=FALSE,dmap.loess=FALSE)
+        par(impar63)
+        }
       else if(input$Dimension_var3=="Canonical Analysis" && input$Prediction_var3=="Others" && input$par_var3=="YES" &&
               input$mod2=="Bayesian model" )
-      {par(mfrow = c(1, 2))
+      {impar64=par(mfrow = c(1, 2))
         a=drawmap (Y[,input$interval3[1]:input$interval3[2]],X,S,axis=c(1,2),formula=input$formula_lm2,
                    dimredumethod=3, predmodel=4, nbpoints=50,
                    pred.na =TRUE, graph.pred =FALSE, graph.map =TRUE,
@@ -3687,7 +3807,9 @@ shinyServer(function(input,output,session)
         b=denoising.loess.global(X,Y[,input$interval3[1]:input$interval3[2]],S, axis=c(1,2), discretspace=discretspace,
                                  formula=input$formula_lm2, dimredumethod=3,
                                  predmodel=4, graphpred=FALSE, drawmap=TRUE,
-                                 pred.na=TRUE,dmap.loess=FALSE)}
+                                 pred.na=TRUE,dmap.loess=FALSE)
+        par(impar64)
+        }
 
 
     })

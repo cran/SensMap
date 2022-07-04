@@ -28,6 +28,7 @@ sens_biscuit
   }
 
 }}
+\value{No return value, called for data loading}
 \source{
   Francois Husson data sets
 }

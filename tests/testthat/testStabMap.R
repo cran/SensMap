@@ -2,7 +2,7 @@ library(SensMap)
 library(doBy)
 library(fields)
 library(glmulti)
-library(data.table)
+#require(data.table)
 library(mgcv)
 library(ggplot2)
 

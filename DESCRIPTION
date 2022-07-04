@@ -1,30 +1,28 @@
 Package: SensMap
 Type: Package
 Title: Sensory and Consumer Data Mapping
-Version: 0.6
-Date: 2018-02-01
-Author: Ibtihel Rebhi [aut, cre], Rihab Boubakri [ctb], Dhafer Malouche [ctb]
+Version: 0.7
+Date: 2022-06-29
+Author: Ibtihel Rebhi [aut, cre],  Dhafer Malouche [ctb]
 Maintainer: Ibtihel Rebhi <ibtihel.rebhi@enit.utm.tn>
 URL: https://github.com/IbtihelRebhi/SensMap
-Description: External preference mapping technique is commonly used in sensory analysis
-    field to connect consumer rating data that contains liking scores to sensory data
-    that incorporates sensory attributes' evaluations of the perceived products
-    Danzart(1998) (<doi:10.1006/fstl.1998.0373>). SensMap package provides the
-    mapping visualization from several features : options in dimension reduction methods
-    and prediction models ranging from linear to non linear regressions. A smoothed
-    version of the map performed using LOESS algorithm is available. A selection process
-    of map stability is provided. A 'shiny' application is included. It presents an easy
-    GUI for the implemented functions as well as a comparative tool of fit models
+Description: Provides Sensory and Consumer Data 
+    mapping and analysis <doi:10.14569/IJACSA.2017.081266>. The mapping visualization is made available
+    from several features : options in dimension reduction methods and prediction models ranging from 
+    linear to non linear regressions. A smoothed version of the map performed using locally weighted regression algorithm 
+    is available. A selection process of map stability is provided. A 'shiny' application is included. 
+    It presents an easy GUI for the implemented functions as well as a comparative tool of fit models
     using several criteria. Basic analysis such as characterization of products,
     panelists and sessions likewise consumer segmentation are also made available.
-Depends: R (>= 3.0.0), stats, grDevices, graphics
+Depends: R (>= 4.0), stats, grDevices, graphics
 Imports: doBy, lattice, FactoMineR, MCMCpack, factoextra, fields,
-        ggdendro, glmulti, mgcv, plotly, shiny, ggplot2
+        ggdendro, glmulti, mgcv, plotly, shiny, ggplot2, reshape2
 License: GPL (>= 2)
 LazyData: TRUE
 Suggests: testthat
-RoxygenNote: 5.0.1
+RoxygenNote: 7.1.2.9000
+Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2018-02-01 13:01:49 UTC; Admin
+Packaged: 2022-07-04 12:45:33 UTC; Ibtihel Rebhi
 Repository: CRAN
-Date/Publication: 2018-02-01 16:05:11 UTC
+Date/Publication: 2022-07-04 19:00:02 UTC

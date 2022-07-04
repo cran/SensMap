@@ -10,18 +10,17 @@ launches a 'shiny' application that provides a Graphical User Interface (GUI) fo
 \usage{
 SensMapUI()
 }
-
+\value{No return value, called for launching application}
 \author{
-Ibtihel Rebhi, Rihab Boubakri, Dhafer Malouche
+Ibtihel Rebhi, Dhafer Malouche
 }
 
 \seealso{\link{PrefMap}, \link{SmoothMap}, \link{StabMap}}
 
 \examples{
-
 \dontrun{
 library(SensMap)
 SensMapUI()
-}
 
+}
 }

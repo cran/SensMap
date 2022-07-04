@@ -90,16 +90,16 @@ data(hedo_biscuit)
  X= prod_bisc[,-c(1:3)]
 # Example of smoothed version of external preference mapping for quadratic
 #  model.
- Smap= SmoothMap(Y,X,S, axis=c(1,2),
- formula="~I(F1*F1)+I(F2*F2)+F1*F2",
- dimredumethod=1,predmodel=1,span=.5,degree=2,
- graphpred=FALSE, drawmap=TRUE, dmap.loess=FALSE)
+# Smap= SmoothMap(Y,X,S, axis=c(1,2),
+# formula="~I(F1*F1)+I(F2*F2)+F1*F2",
+# dimredumethod=1,predmodel=1,span=.5,degree=2,
+ #graphpred=FALSE, drawmap=TRUE, dmap.loess=FALSE)
 # results of predictions by LOESS smoothing
-  Smap$z.loess
-  Smap$m.loess
+#  Smap$z.loess
+#  Smap$m.loess
 }
 \author{
-Ibtihel Rebhi, Rihab Boubakri, Dhafer Malouche
+Ibtihel Rebhi, Dhafer Malouche
 }
 
 

@@ -98,7 +98,7 @@ in sensory analysis field to explain hedonic judgments towards products in funct
  occur.QR=map_QR$occur.NA
 }
 \author{
-Ibtihel Rebhi, Rihab Boubakri, Dhafer Malouche
+Ibtihel Rebhi, Dhafer Malouche
 }
 \references{
 Sebastien Le, Francois Husson (2008).SensoMineR:

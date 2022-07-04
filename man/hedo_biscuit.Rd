@@ -19,6 +19,7 @@ hedo_biscuit
     294 consumers : ratings of consumers
   }
 }}
+\value{No return value, called for data loading}
 \source{
   Francois Husson data sets
 }
